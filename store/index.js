@@ -2,6 +2,7 @@ import { ALL_HOME } from "@/apollo/queries";
 
 export default {
   actions: {
+    // Getting home title and home banner
     async nuxtServerInit({commit}, context) {
       await context.app.apolloProvider.defaultClient.query ({
         query: ALL_HOME,
@@ -12,7 +13,7 @@ export default {
       .catch(e => console.log(e))   
     }
   },
-  state:()=>({
+  state: () => ({
     all_home: {}
   }),
   mutations: {

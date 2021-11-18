@@ -28,16 +28,8 @@ export default {
     Pagination,
     HeroBanner,
   },
-  // if home page loaded after visiting book lending page,
-  // then mount home page from the same pagination page
   async mounted() {
     await this.$store.dispatch("books/getBooks");
-    if (this.$route.params.limit) {
-      await this.getData({
-        limit: this.limit,
-        skip: this.skip,
-      });
-    }
   },
   computed: {
     ...mapState({
@@ -47,14 +39,6 @@ export default {
       total: (state) => state.books.total,
       all_home: (state) => state.all_home,
     }),
-  },
-  methods: {
-    // function for passing graphql query to pagination component
-    // and for updating skip and limit properties from pagination component
-    // go to book lending page
-    toSingleBook(param) {
-      this.$router.push({ name: `book:uid`, params: param });
-    },
   },
 };
 </script>

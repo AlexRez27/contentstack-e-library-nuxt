@@ -3,6 +3,7 @@ import fillStateAllBookArray from '@/common'
 
 export default {
   actions: {
+    // get list of books
   async getBooks({state, commit}) {
     await this.app.apolloProvider.defaultClient.query ({
       query: ALL_BOOK,

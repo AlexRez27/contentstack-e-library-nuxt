@@ -37,7 +37,6 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/apollo',
-    '@nuxtjs/composition-api/module'
   ],
 
   apollo: {
@@ -60,6 +59,4 @@ export default {
   env: {
 
   },
-
-  serverMiddleware: [{ path: '/', handler: '~/server/index.js' }],
 }

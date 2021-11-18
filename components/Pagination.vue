@@ -18,8 +18,6 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
-
 export default {
   name: "Pagination",
   data() {
@@ -41,16 +39,15 @@ export default {
     },
   },
   methods: {
-    ...mapActions({
-      getBooks: "books/getBooks",
-    }),
     async changePage() {
       const params = {
         limit: this.size,
         skip: this.pageNumber * this.size,
       };
+      // updating skip & limit parameters
       this.$store.commit("books/updateSkipLimit", params);
-      await this.getBooks(this.$apollo);
+      // get new list of books for the next/previous page
+      await this.$store.dispatch("books/getBooks");
     },
     nextPage() {
       this.pageNumber += 1;

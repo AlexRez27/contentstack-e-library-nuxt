@@ -23,6 +23,7 @@
     "lodash": "^4.17.21",
     "materialize-css": "^1.0.0-rc.2",
     "nuxt": "^2.15.7",
+    "nuxt-video-player": "^1.0.17",
     "vue-apollo": "^3.0.8",
     "vuex": "^3.6.2"
   },

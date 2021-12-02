@@ -1,9 +1,10 @@
 <template>
-  <nuxt-link class="list" :to="toSingleBook">
+  <nuxt-link :class="{ disabled: !book.isAvailable }" class="list" :to="toSingleBook">
     <div class="collection list">
       <a class="collection-item">
         <img :src="book.url" :alt="book.title" />
         <h5>{{ book.title }}</h5>
+        <p class="" v-show="!book.isAvailable"> Out of stock </p>
       </a>
     </div>
   </nuxt-link>
@@ -22,7 +23,7 @@ export default {
     toSingleBook() {
       return `/${this.book.uid}`;
     },
-  },
+  }
 };
 </script>
 
@@ -37,5 +38,12 @@ export default {
     text-align: center;
     width: 100%;
   }
+}
+
+.disabled {
+   pointer-events: none;
+   & h5 {
+    color: lightgrey;
+   }
 }
 </style>

@@ -6,7 +6,7 @@ const headers = {
   access_token: process.env.VUE_APP_CONTENTSTACK_DELIVERY_TOKEN,
 };
 
-// function for getting single entie using Content Delivery API
+// function for getting single entrie using Content Delivery API
 export default {
   async getEntrie(contentTypeUid, entryUid) {
     const book = await axios.get(`${process.env.VUE_APP_CONTENTSTACK_BASE_URL}/content_types/${contentTypeUid}/entries/${entryUid}?environment=${process.env.VUE_APP_CONTENTSTACK_ENVIRONMENT}`, {

@@ -18,7 +18,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    "~node_modules/materialize-css/dist/css/materialize.min.css"
+    "~node_modules/materialize-css/dist/css/materialize.min.css",
+    "~node_modules/nuxt-video-player/src/assets/css/main.css"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -41,7 +42,7 @@ export default {
 
   apollo: {
     clientConfigs: {
-     default: '~/apollo/vue-apollo.js'
+      default: '~/apollo/vue-apollo.js'
     }
   },
 

@@ -6,6 +6,7 @@ query ALL_BOOK($limit: Int!, $skip: Int!) {
     total
     items {
       title
+      available
       system {
         uid
       }
@@ -26,17 +27,37 @@ const ALL_HOME = gql`
 query ALL_HOME {
   all_home {
     items {
-      title
-      hero_bannerConnection {
-        edges {
-          node {
-            title
-            url
+      home {
+        ... on HomeHomeBookBanner {
+          __typename
+          book_banner {
+            videofileConnection {
+              edges {
+                node {
+                  url
+                }
+              }
+            }
+          }
+        }
+        ... on HomeHomeHomePage {
+          __typename
+          home_page {
+            hero_bannerConnection {
+              edges {
+                node {
+                  url
+                  title
+                }
+              }
+            }
           }
         }
       }
+      title
     }
-  }}
+  }
+  }
 `;
 
 export {

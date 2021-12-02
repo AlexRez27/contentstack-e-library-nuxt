@@ -4,18 +4,18 @@ import fillStateAllBookArray from '@/common'
 export default {
   actions: {
     // get list of books
-  async getBooks({state, commit}) {
-    await this.app.apolloProvider.defaultClient.query ({
-      query: ALL_BOOK,
-      variables: {
-        limit: state.limit,
-        skip: state.skip,
-      },
-    })
-    .then((response) => {
-      commit('getAllBooks', response.data.all_book)  
-    })
-    .catch(e => console.log(e))   
+    async getBooks({ state, commit }) {
+      await this.app.apolloProvider.defaultClient.query({
+        query: ALL_BOOK,
+        variables: {
+          limit: state.limit,
+          skip: state.skip,
+        },
+      })
+        .then((response) => {
+          commit('getAllBooks', response.data.all_book)
+        })
+        .catch(e => console.log(e))
     }
   },
   state: () => ({
@@ -25,12 +25,12 @@ export default {
     total: 0,
   }),
   mutations: {
-    getAllBooks(state,books) {
-       // cleam state.all_book array 
+    getAllBooks(state, books) {
+      // cleam state.all_book array 
       if (state.all_book) {
         state.all_book = []
       }
-      fillStateAllBookArray(books.items, state.all_book)
+      state.all_book = fillStateAllBookArray(books.items)
       state.total = books.total
     },
     updateSkipLimit(state, values) {

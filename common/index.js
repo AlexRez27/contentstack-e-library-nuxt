@@ -1,13 +1,10 @@
-function fillStateAllBookArray(items, state){
-  items.forEach(el => {
-    const book = {
-      title: el.title,
-      url: el.cover_imageConnection.edges[0].node.url,
-      uid: el.system.uid
-    }
-    state.push(book)
+function fillStateAllBookArray(items) {
+  return items.map(el => el = {
+    title: el.title,
+    url: el.cover_imageConnection.edges[0].node.url,
+    uid: el.system.uid,
+    isAvailable: el.available
   })
-  return state
 }
 
 export {
